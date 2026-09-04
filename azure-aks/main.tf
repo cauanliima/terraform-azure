@@ -61,6 +61,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
     dns_service_ip = var.dns_service_ip
   }
 
+  web_app_routing {
+    dns_zone_ids = []
+  }
+
   tags = local.common_tags
 
   depends_on = [

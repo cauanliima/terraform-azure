@@ -7,4 +7,5 @@ data "terraform_remote_state" "vnet" {
     container_name       = "remote-state"
     key                  = "azure-vnet/terraform.tfstate"
   }
+  
 }
