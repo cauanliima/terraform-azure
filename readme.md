@@ -1,14 +1,14 @@
 
-# Projetos
+# Azure Infrastructure (Terraform)
 
-## azure-common
-Cria recursos comum a todos os projetos
+Este repositório contém os módulos de IaC para provisionamento da infraestrutura base na Azure.
 
-## azure-vnet
-Cria rede para a criação das VMs e AKS
+## 📁 Estrutura dos Módulos
 
-## azure-vm-com-vnet-remote-state
-Criação de VM
+* **`azure-common`**: Recursos globais e compartilhados entre projetos.
+* **`azure-vnet`**: Provisionamento da rede virtual (VNet) e sub-redes para VMs e AKS.
+* **`azure-vm-com-vnet-remote-state`**: Provisionamento de Máquinas Virtuais.
+* **`azure-aks-com-vnet-remote-state`**: Cluster AKS com ArgoCD pré-instalado e rotas expostas via `nip.io`.
 
 # Comandos úteis
 ## Login com app no PowerShell
