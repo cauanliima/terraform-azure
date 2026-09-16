@@ -21,3 +21,13 @@ output "aks_subnet_id" {
 
   value = data.terraform_remote_state.vnet.outputs.subnet_id
 }
+
+output "nginx_ingress_public_ip" {
+  description = "Public IP do NGINX Ingress"
+  value       = azurerm_public_ip.nginx_ingress.ip_address
+}
+
+output "argocd_url" {
+  description = "URL do Argo CD"
+  value       = "http://${local.argocd_hostname}"
+}

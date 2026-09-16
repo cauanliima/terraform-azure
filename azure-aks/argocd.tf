@@ -21,9 +21,9 @@ resource "helm_release" "argocd" {
 
         ingress = {
           enabled          = true
-          ingressClassName = "webapprouting.kubernetes.azure.com"
+          ingressClassName = "nginx"
 
-          hostname = "argocd-52.224.79.13.nip.io"
+          hostname = local.argocd_hostname
 
           path     = "/"
           pathType = "Prefix"
@@ -32,5 +32,9 @@ resource "helm_release" "argocd" {
         }
       }
     })
+  ]
+
+  depends_on = [
+    helm_release.nginx_ingress
   ]
 }

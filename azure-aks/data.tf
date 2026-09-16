@@ -9,3 +9,8 @@ data "terraform_remote_state" "vnet" {
   }
   
 }
+
+data "azurerm_network_security_group" "terraform" {
+  name                = "nsg-terraform"
+  resource_group_name = "rg-vnet"
+}

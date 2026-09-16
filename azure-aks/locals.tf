@@ -6,4 +6,6 @@ locals {
     managed_by  = "terraform"
     project     = "aks"
   }
+  argocd_hostname = "argocd-${azurerm_public_ip.nginx_ingress.ip_address}.nip.io"
+
 }
