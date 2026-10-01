@@ -31,3 +31,8 @@ output "argocd_url" {
   description = "URL do Argo CD"
   value       = "http://${local.argocd_hostname}"
 }
+
+output "kube_config" {
+  value     = azurerm_kubernetes_cluster.aks.kube_config_raw
+  sensitive = true
+}

@@ -76,3 +76,6 @@ az vm list-sizes --location brazilsouth --output table
 
 ## Listar imagens de SO disponíveis
 az vm image list --location brazilsouth --publisher Canonical --offer UbuntuServer --all -o table
+
+## Kubeconfig
+terraform output -raw kube_config

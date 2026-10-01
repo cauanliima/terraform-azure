@@ -86,33 +86,3 @@ resource "azurerm_kubernetes_cluster" "aks" {
     azurerm_role_assignment.aks_public_ip_network_contributor
   ]
 }
-
-resource "azurerm_network_security_rule" "http" {
-  name                        = "Allow-HTTP"
-  priority                    = 110
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
-  source_port_range           = "*"
-  destination_port_range      = "80"
-  source_address_prefix      = "Internet"
-  destination_address_prefix = "*"
-
-  resource_group_name         = "rg-vnet"
-  network_security_group_name = data.azurerm_network_security_group.terraform.name
-}
-
-resource "azurerm_network_security_rule" "https" {
-  name                        = "Allow-HTTPS"
-  priority                    = 120
-  direction                   = "Inbound"
-  access                      = "Allow"
-  protocol                    = "Tcp"
-  source_port_range           = "*"
-  destination_port_range      = "443"
-  source_address_prefix      = "Internet"
-  destination_address_prefix = "*"
-
-  resource_group_name         = "rg-vnet"
-  network_security_group_name = data.azurerm_network_security_group.terraform.name
-}

@@ -42,7 +42,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   location              = var.location
   size                  = "Standard_DC2s_v3"
   admin_username        = "terraform"
-  network_interface_ids = [azurerm_network_interface.network_interface.id, ]
+  network_interface_ids = [azurerm_network_interface.network_interface.id]
 
   admin_ssh_key {
     username   = "terraform"
@@ -54,11 +54,10 @@ resource "azurerm_linux_virtual_machine" "vm" {
     storage_account_type = "Standard_LRS"
     disk_size_gb         = 64
   }
-
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18_04-lts-gen2"
+    publisher = "Debian"
+    offer     = "debian-12"
+    sku       = "12-backports-gen2"
     version   = "latest"
   }
 }

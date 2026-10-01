@@ -12,14 +12,16 @@ resource "helm_release" "nginx_ingress" {
         replicaCount = 2
 
         service = {
-          type = "LoadBalancer"
+          type                  = "LoadBalancer"
           externalTrafficPolicy = "Cluster"
+
           annotations = {
             "service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path" = "/healthz"
-            "service.beta.kubernetes.io/azure-pip-name" = azurerm_public_ip.nginx_ingress.name
-            "service.beta.kubernetes.io/azure-load-balancer-resource-group" = azurerm_resource_group.resource_group.name
-            }
+            "service.beta.kubernetes.io/azure-pip-name"                                = azurerm_public_ip.nginx_ingress.name
+            "service.beta.kubernetes.io/azure-load-balancer-resource-group"            = azurerm_resource_group.resource_group.name
+          }
         }
+
         networkPolicy = {
           enabled = true
         }
