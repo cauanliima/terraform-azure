@@ -36,3 +36,11 @@ output "kube_config" {
   value     = azurerm_kubernetes_cluster.aks.kube_config_raw
   sensitive = true
 }
+
+output "vault_url" {
+  value = "http://${local.vault_hostname}"
+}
+
+output "grafana_url" {
+  value = "http://${local.grafana_hostname}"
+}

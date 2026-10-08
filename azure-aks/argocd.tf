@@ -11,6 +11,7 @@ resource "helm_release" "argocd" {
       configs = {
         params = {
           "server.insecure" = true
+          "server.disable.auth" = true
         }
       }
 

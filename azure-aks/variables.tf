@@ -1,7 +1,7 @@
 variable "location" {
   description = "Região do Azure"
   type        = string
-  default     = "eastus"
+  default     = "eastus2"
 }
 
 variable "aks_name" {
